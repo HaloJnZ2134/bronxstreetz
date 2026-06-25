@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bronx Streetz gallery with featured city scenes, cars, spawners, and action highlights." />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>Gallery | Bronx Streetz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="Bronx Streetz home">
+      <span class="brand-mark">BS</span>
+      <span class="brand-text">Bronx Streetz</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a class="active" href="gallery.html">Gallery</a>
+      <a class="nav-cta" href="https://www.roblox.com/games/16995353837/Bronx-Streetz" target="_blank" rel="noopener">Play Now</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero section-pad reveal">
+      <p class="eyebrow">Gallery</p>
+      <h1>Scenes from the Streetz.</h1>
+      <p>Use this page for official screenshots, update teasers, car shots, map previews, community moments, and promo art for Bronx Streetz.</p>
+    </section>
+
+    <section class="section-pad gallery-grid" aria-label="Bronx Streetz gallery">
+      <article class="gallery-card tall reveal">
+        <div class="gallery-art art-city"></div>
+        <div class="gallery-caption">
+          <span>City</span>
+          <h2>Night blocks</h2>
+          <p>Dark streets, neon windows, and the city pressure before the next run.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal delay-1">
+        <div class="gallery-art art-car"></div>
+        <div class="gallery-caption">
+          <span>Vehicles</span>
+          <h2>Street rides</h2>
+          <p>Feature your best in-game car screenshots here.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal delay-2">
+        <div class="gallery-art art-cash"></div>
+        <div class="gallery-caption">
+          <span>Progression</span>
+          <h2>Cash climb</h2>
+          <p>Show players what they can grind toward.</p>
+        </div>
+      </article>
+      <article class="gallery-card wide reveal">
+        <div class="gallery-art art-map"></div>
+        <div class="gallery-caption">
+          <span>Map</span>
+          <h2>Bronx Streetz zones</h2>
+          <p>Add official map previews, update areas, and new location screenshots.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal delay-1">
+        <div class="gallery-art art-spawner"></div>
+        <div class="gallery-caption">
+          <span>Spawners</span>
+          <h2>Upgrade path</h2>
+          <p>Highlight spawners and player progression visuals.</p>
+        </div>
+      </article>
+      <article class="gallery-card reveal delay-2">
+        <div class="gallery-art art-community"></div>
+        <div class="gallery-caption">
+          <span>Community</span>
+          <h2>Player moments</h2>
+          <p>Drop in event shots, update posts, and community screenshots.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Bronx Streetz. All rights reserved.</p>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="https://www.roblox.com/games/16995353837/Bronx-Streetz" target="_blank" rel="noopener">Roblox</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
