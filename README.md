@@ -7,10 +7,23 @@ Static GitHub Pages website for Bronx Streetz.
 - `index.html` - Home page
 - `about.html` - About page
 - `gallery.html` - Gallery page
+- `stats.html` - Roblox statistics page
 
 ## Website visit counter
 
 The homepage includes a public visitor badge that counts website views.
+
+## Statistics updater
+
+The statistics page reads from `data/roblox-stats.json`.
+
+That file is updated by `.github/workflows/update-roblox-stats.yml` every 15 minutes. To update it right away:
+
+1. Open the repository on GitHub.
+2. Go to **Actions**.
+3. Select **Update Roblox Stats**.
+4. Click **Run workflow**.
+5. Wait for it to finish, then refresh the website.
 
 ## Gallery images
 
