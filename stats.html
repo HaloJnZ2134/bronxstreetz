@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Roblox statistics for Bronx Streetz including concurrent players, visits, favourites, likes, and rating." />
+  <meta name="theme-color" content="#0b0f14" />
+  <title>Statistics | Bronx Streetz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="Bronx Streetz home">
+      <span class="brand-mark">BS</span>
+      <span class="brand-text">Bronx Streetz</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a class="active" href="stats.html">Statistics</a>
+      <a href="https://discord.gg/XVc4PGBFNk" target="_blank" rel="noopener">Discord</a>
+      <a class="nav-cta" href="https://www.roblox.com/games/16995353837/Bronx-Streetz" target="_blank" rel="noopener">Play Now</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero section-pad reveal">
+      <p class="eyebrow">Game statistics</p>
+      <h1>Bronx Streetz numbers, cached from Roblox.</h1>
+      <p>The stats are fetched by GitHub Actions and saved into this website as a local JSON file. That avoids Roblox browser request blocking and makes the cards load properly on GitHub Pages.</p>
+    </section>
+
+    <section class="section-pad stats-shell reveal" data-stats-root data-stats-src="data/roblox-stats.json">
+      <div class="stats-topbar">
+        <div>
+          <p class="eyebrow">Status</p>
+          <h2>Stats dashboard</h2>
+        </div>
+        <div class="stats-actions">
+          <span class="fetch-status" data-fetch-status>Loading cached stats...</span>
+          <button class="button ghost small-button" type="button" data-refresh-stats>Refresh</button>
+        </div>
+      </div>
+
+      <div class="live-stats-grid" aria-label="Bronx Streetz statistics">
+        <article class="live-stat-card hot">
+          <span>Concurrent Players</span>
+          <strong data-stat="playing">...</strong>
+          <p>Players currently in-game when the cache was updated.</p>
+        </article>
+        <article class="live-stat-card">
+          <span>Total Visits</span>
+          <strong data-stat="visits">...</strong>
+          <p>All-time Roblox visits.</p>
+        </article>
+        <article class="live-stat-card">
+          <span>Favourites</span>
+          <strong data-stat="favorites">...</strong>
+          <p>Players who favourited the game.</p>
+        </article>
+        <article class="live-stat-card">
+          <span>Likes</span>
+          <strong data-stat="likes">...</strong>
+          <p>Total public upvotes.</p>
+        </article>
+        <article class="live-stat-card">
+          <span>Dislikes</span>
+          <strong data-stat="dislikes">...</strong>
+          <p>Total public downvotes.</p>
+        </article>
+        <article class="live-stat-card glow">
+          <span>Like Rating</span>
+          <strong data-stat="rating">...</strong>
+          <p>Upvote percentage from votes.</p>
+        </article>
+      </div>
+
+      <div class="stat-note">
+        <p>Last updated: <strong data-last-updated>Not loaded yet</strong></p>
+        <p>Stats update automatically when the GitHub Action runs. You can also run the workflow manually from the repository Actions tab.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Bronx Streetz. All rights reserved.</p>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="https://discord.gg/XVc4PGBFNk" target="_blank" rel="noopener">Discord</a>
+      <a href="https://www.roblox.com/games/16995353837/Bronx-Streetz" target="_blank" rel="noopener">Roblox</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
