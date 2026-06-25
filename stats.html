@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Live Roblox statistics for Bronx Streetz including concurrent players, visits, favourites, likes, and rating." />
+  <meta name="description" content="Roblox statistics for Bronx Streetz including concurrent players, visits, favourites, likes, and rating." />
   <meta name="theme-color" content="#0b0f14" />
   <title>Statistics | Bronx Streetz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,28 +37,28 @@
 
   <main>
     <section class="page-hero section-pad reveal">
-      <p class="eyebrow">Live game statistics</p>
-      <h1>Bronx Streetz numbers, straight from Roblox.</h1>
-      <p>This page tries to load the latest public Roblox stats in your browser. It refreshes automatically every 60 seconds while the page is open.</p>
+      <p class="eyebrow">Game statistics</p>
+      <h1>Bronx Streetz numbers, cached from Roblox.</h1>
+      <p>The stats are fetched by GitHub Actions and saved into this website as a local JSON file. That avoids Roblox browser request blocking and makes the cards load properly on GitHub Pages.</p>
     </section>
 
-    <section class="section-pad stats-shell reveal" data-stats-root data-place-id="16995353837">
+    <section class="section-pad stats-shell reveal" data-stats-root data-stats-src="data/roblox-stats.json">
       <div class="stats-topbar">
         <div>
           <p class="eyebrow">Status</p>
-          <h2>Live dashboard</h2>
+          <h2>Stats dashboard</h2>
         </div>
         <div class="stats-actions">
-          <span class="fetch-status" data-fetch-status>Loading Roblox stats...</span>
+          <span class="fetch-status" data-fetch-status>Loading cached stats...</span>
           <button class="button ghost small-button" type="button" data-refresh-stats>Refresh</button>
         </div>
       </div>
 
-      <div class="live-stats-grid" aria-label="Live Bronx Streetz statistics">
+      <div class="live-stats-grid" aria-label="Bronx Streetz statistics">
         <article class="live-stat-card hot">
           <span>Concurrent Players</span>
           <strong data-stat="playing">...</strong>
-          <p>Players currently in-game.</p>
+          <p>Players currently in-game when the cache was updated.</p>
         </article>
         <article class="live-stat-card">
           <span>Total Visits</span>
@@ -89,7 +89,7 @@
 
       <div class="stat-note">
         <p>Last updated: <strong data-last-updated>Not loaded yet</strong></p>
-        <p>If the cards show unavailable, Roblox may be blocking browser requests from GitHub Pages at that moment. The page will keep retrying when you refresh.</p>
+        <p>Stats update automatically when the GitHub Action runs. You can also run the workflow manually from the repository Actions tab.</p>
       </div>
     </section>
   </main>
