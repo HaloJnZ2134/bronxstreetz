@@ -1,14 +1,14 @@
 {
-  "ok": false,
+  "ok": true,
   "placeId": "16995353837",
-  "universeId": null,
-  "name": "Bronx Streetz",
-  "playing": null,
-  "visits": null,
-  "favorites": null,
-  "likes": null,
-  "dislikes": null,
-  "rating": null,
-  "updatedAt": null,
-  "error": "Stats cache has not been updated yet. Run the Update Roblox Stats workflow once from the Actions tab."
+  "universeId": 5830815244,
+  "name": "[❗FREE GUNS❗] Bronx Streetz",
+  "playing": 5,
+  "visits": 1594166,
+  "favorites": 12154,
+  "likes": 1140,
+  "dislikes": 172,
+  "rating": 86.89024390243902,
+  "updatedAt": "2026-06-25T09:00:41.217Z",
+  "source": "Roblox public APIs via GitHub Actions"
 }
