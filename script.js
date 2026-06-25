@@ -44,12 +44,12 @@ galleryImages.forEach((image) => {
 });
 
 const formatNumber = (value) => {
-  if (value === null || value === undefined || Number.isNaN(Number(value))) return 'Unavailable';
+  if (value === null || value === undefined || value === '' || Number.isNaN(Number(value))) return 'Unavailable';
   return new Intl.NumberFormat('en-US').format(Number(value));
 };
 
 const formatPercent = (value) => {
-  if (value === null || value === undefined || Number.isNaN(Number(value))) return 'Unavailable';
+  if (value === null || value === undefined || value === '' || Number.isNaN(Number(value))) return 'Unavailable';
   return `${Number(value).toFixed(1)}%`;
 };
 
@@ -63,7 +63,8 @@ const setStat = (name, value) => {
 };
 
 const fetchJson = async (url) => {
-  const response = await fetch(url, { cache: 'no-store' });
+  const bust = url.includes('?') ? '&' : '?';
+  const response = await fetch(`${url}${bust}v=${Date.now()}`, { cache: 'no-store' });
   if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
   return response.json();
 };
@@ -75,59 +76,52 @@ const setStatsStatus = (message, isError = false) => {
   status.classList.toggle('is-error', isError);
 };
 
+const formatUpdatedTime = (isoString) => {
+  if (!isoString) return 'Not loaded yet';
+  const date = new Date(isoString);
+  if (Number.isNaN(date.getTime())) return isoString;
+
+  return date.toLocaleString([], {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+};
+
+const setUnavailableStats = () => {
+  ['playing', 'visits', 'favorites', 'likes', 'dislikes', 'rating'].forEach((stat) => {
+    setStat(stat, 'Unavailable');
+  });
+};
+
 const loadRobloxStats = async () => {
   if (!statsRoot) return;
 
-  const placeId = statsRoot.dataset.placeId;
+  const statsSrc = statsRoot.dataset.statsSrc || 'data/roblox-stats.json';
   const refreshButton = document.querySelector('[data-refresh-stats]');
 
   try {
     if (refreshButton) refreshButton.disabled = true;
-    setStatsStatus('Loading Roblox stats...');
+    setStatsStatus('Loading cached stats...');
 
-    const universeData = await fetchJson(`https://apis.roblox.com/universes/v1/places/${placeId}/universe`);
-    const universeId = universeData.universeId;
+    const stats = await fetchJson(statsSrc);
 
-    if (!universeId) {
-      throw new Error('Universe ID was not returned by Roblox.');
+    if (!stats || stats.ok === false) {
+      throw new Error(stats && stats.error ? stats.error : 'Stats cache is unavailable.');
     }
 
-    const [gameData, voteData] = await Promise.all([
-      fetchJson(`https://games.roblox.com/v1/games?universeIds=${universeId}`),
-      fetchJson(`https://games.roblox.com/v1/games/votes?universeIds=${universeId}`).catch(() => null),
-    ]);
+    setStat('playing', formatNumber(stats.playing));
+    setStat('visits', formatNumber(stats.visits));
+    setStat('favorites', formatNumber(stats.favorites));
+    setStat('likes', formatNumber(stats.likes));
+    setStat('dislikes', formatNumber(stats.dislikes));
+    setStat('rating', formatPercent(stats.rating));
+    setText('[data-last-updated]', formatUpdatedTime(stats.updatedAt));
 
-    const game = gameData && gameData.data && gameData.data[0];
-    const votes = voteData && voteData.data && voteData.data[0];
-
-    if (!game) {
-      throw new Error('Roblox returned no game statistics.');
-    }
-
-    const upVotes = votes ? votes.upVotes : null;
-    const downVotes = votes ? votes.downVotes : null;
-    const totalVotes = Number(upVotes || 0) + Number(downVotes || 0);
-    const rating = totalVotes > 0 ? (Number(upVotes) / totalVotes) * 100 : null;
-
-    setStat('playing', formatNumber(game.playing));
-    setStat('visits', formatNumber(game.visits));
-    setStat('favorites', formatNumber(game.favoritedCount));
-    setStat('likes', formatNumber(upVotes));
-    setStat('dislikes', formatNumber(downVotes));
-    setStat('rating', formatPercent(rating));
-
-    setText('[data-last-updated]', new Date().toLocaleString([], {
-      dateStyle: 'medium',
-      timeStyle: 'short',
-    }));
-
-    setStatsStatus('Live stats online');
+    setStatsStatus('Stats loaded');
   } catch (error) {
-    console.warn('Could not load Roblox stats:', error);
-    ['playing', 'visits', 'favorites', 'likes', 'dislikes', 'rating'].forEach((stat) => {
-      setStat(stat, 'Unavailable');
-    });
-    setStatsStatus('Stats unavailable right now', true);
+    console.warn('Could not load cached Roblox stats:', error);
+    setUnavailableStats();
+    setStatsStatus('Stats cache not ready yet', true);
   } finally {
     if (refreshButton) refreshButton.disabled = false;
   }
