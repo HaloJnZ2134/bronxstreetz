@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bronx Streetz gallery with featured city scenes, cars, spawners, and action highlights." />
+  <meta name="description" content="Bronx Streetz gallery with featured city screenshots, cars, spawners, and action highlights." />
   <meta name="theme-color" content="#0b0f14" />
   <title>Gallery | Bronx Streetz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,8 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a class="active" href="gallery.html">Gallery</a>
+      <a href="stats.html">Statistics</a>
+      <a href="https://discord.gg/XVc4PGBFNk" target="_blank" rel="noopener">Discord</a>
       <a class="nav-cta" href="https://www.roblox.com/games/16995353837/Bronx-Streetz" target="_blank" rel="noopener">Play Now</a>
     </nav>
   </header>
@@ -37,12 +39,21 @@
     <section class="page-hero section-pad reveal">
       <p class="eyebrow">Gallery</p>
       <h1>Scenes from the Streetz.</h1>
-      <p>Use this page for official screenshots, update teasers, car shots, map previews, community moments, and promo art for Bronx Streetz.</p>
+      <p>Upload real screenshots into <strong>assets/gallery/</strong> using the exact file names below. Missing images automatically fall back to the styled cards, so the page stays clean while you build the gallery.</p>
+    </section>
+
+    <section class="section-pad gallery-help reveal" aria-label="Gallery upload instructions">
+      <div class="glass-panel upload-panel">
+        <p class="eyebrow">How to add pictures</p>
+        <h2>Drop images into the gallery folder.</h2>
+        <p>Upload these files to <strong>assets/gallery/</strong>: <code>city.png</code>, <code>cars.png</code>, <code>cash.png</code>, <code>map.png</code>, <code>spawners.png</code>, and <code>community.png</code>. You can use PNG, JPG, JPEG, or WEBP, but update the image path if the extension is different.</p>
+      </div>
     </section>
 
     <section class="section-pad gallery-grid" aria-label="Bronx Streetz gallery">
       <article class="gallery-card tall reveal">
-        <div class="gallery-art art-city"></div>
+        <div class="gallery-fallback art-city"></div>
+        <img class="gallery-img" src="assets/gallery/city.png" alt="Bronx Streetz city screenshot" loading="lazy">
         <div class="gallery-caption">
           <span>City</span>
           <h2>Night blocks</h2>
@@ -50,7 +61,8 @@
         </div>
       </article>
       <article class="gallery-card reveal delay-1">
-        <div class="gallery-art art-car"></div>
+        <div class="gallery-fallback art-car"></div>
+        <img class="gallery-img" src="assets/gallery/cars.png" alt="Bronx Streetz car screenshot" loading="lazy">
         <div class="gallery-caption">
           <span>Vehicles</span>
           <h2>Street rides</h2>
@@ -58,7 +70,8 @@
         </div>
       </article>
       <article class="gallery-card reveal delay-2">
-        <div class="gallery-art art-cash"></div>
+        <div class="gallery-fallback art-cash"></div>
+        <img class="gallery-img" src="assets/gallery/cash.png" alt="Bronx Streetz cash progression screenshot" loading="lazy">
         <div class="gallery-caption">
           <span>Progression</span>
           <h2>Cash climb</h2>
@@ -66,7 +79,8 @@
         </div>
       </article>
       <article class="gallery-card wide reveal">
-        <div class="gallery-art art-map"></div>
+        <div class="gallery-fallback art-map"></div>
+        <img class="gallery-img" src="assets/gallery/map.png" alt="Bronx Streetz map preview" loading="lazy">
         <div class="gallery-caption">
           <span>Map</span>
           <h2>Bronx Streetz zones</h2>
@@ -74,7 +88,8 @@
         </div>
       </article>
       <article class="gallery-card reveal delay-1">
-        <div class="gallery-art art-spawner"></div>
+        <div class="gallery-fallback art-spawner"></div>
+        <img class="gallery-img" src="assets/gallery/spawners.png" alt="Bronx Streetz spawner screenshot" loading="lazy">
         <div class="gallery-caption">
           <span>Spawners</span>
           <h2>Upgrade path</h2>
@@ -82,7 +97,8 @@
         </div>
       </article>
       <article class="gallery-card reveal delay-2">
-        <div class="gallery-art art-community"></div>
+        <div class="gallery-fallback art-community"></div>
+        <img class="gallery-img" src="assets/gallery/community.png" alt="Bronx Streetz community screenshot" loading="lazy">
         <div class="gallery-caption">
           <span>Community</span>
           <h2>Player moments</h2>
@@ -97,6 +113,8 @@
     <div>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
+      <a href="stats.html">Statistics</a>
+      <a href="https://discord.gg/XVc4PGBFNk" target="_blank" rel="noopener">Discord</a>
       <a href="https://www.roblox.com/games/16995353837/Bronx-Streetz" target="_blank" rel="noopener">Roblox</a>
     </div>
   </footer>
