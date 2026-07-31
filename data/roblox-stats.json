@@ -1,14 +1,14 @@
 {
-  "ok": false,
+  "ok": true,
   "placeId": "16995353837",
-  "universeId": null,
-  "name": "Bronx Streetz",
-  "playing": null,
-  "visits": null,
-  "favorites": null,
-  "likes": null,
-  "dislikes": null,
-  "rating": null,
-  "updatedAt": "2026-07-31T20:48:05.109Z",
-  "error": "fetch failed"
+  "universeId": 5830815244,
+  "name": "[❗UPDATE❗] Bronx Streetz",
+  "playing": 0,
+  "visits": 1597510,
+  "favorites": 12300,
+  "likes": 1144,
+  "dislikes": 172,
+  "rating": 86.93009118541033,
+  "updatedAt": "2026-07-31T21:48:54.487Z",
+  "source": "Roblox public APIs via GitHub Actions"
 }
